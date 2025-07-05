@@ -35,7 +35,7 @@ fun mainScreen() {
 
                 modifier = Modifier
                     .background(colorResource(id = R.color.white))
-                    .fillMaxSize()
+                    .fillMaxWidth()
                     .padding(start = pxToDpFixedDpi(px = 90f), top = pxToDpFixedDpi(px = 60f))
 
             ) {
