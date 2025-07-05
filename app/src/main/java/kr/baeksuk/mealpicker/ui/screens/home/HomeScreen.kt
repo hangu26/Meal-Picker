@@ -1,4 +1,4 @@
-package kr.baeksuk.mealpicker.ui.home
+package kr.baeksuk.mealpicker.ui.screens.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,7 @@ fun homeScreen(){
 
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.black)),
+            .background(colorResource(id = R.color.white)),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
 
@@ -31,7 +31,7 @@ fun homeScreen(){
 
         Text(
             text = "홈 화면",
-            color = colorResource(id = R.color.white),
+            color = colorResource(id = R.color.black),
             fontSize = pxToSpFixedDpi(px = 80f),
             fontFamily = pretendard,
             fontWeight = FontWeight.Bold
