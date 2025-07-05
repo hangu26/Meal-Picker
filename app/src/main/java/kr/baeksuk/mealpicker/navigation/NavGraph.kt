@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import kr.baeksuk.mealpicker.ui.home.homeScreen
+import kr.baeksuk.mealpicker.ui.screens.home.homeScreen
 import kr.baeksuk.mealpicker.ui.screens.favorite.favoriteScreen
 import kr.baeksuk.mealpicker.ui.screens.profile.profileScreen
 import kr.baeksuk.mealpicker.ui.screens.search.searchScreen
