@@ -27,8 +27,8 @@ fun BottomNavigation(navController: NavHostController) {
     val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
 
     Surface(
-        tonalElevation = 6.dp, // 그림자 효과 크기
-        shadowElevation = 6.dp, // 진한 그림자를 원할 경우
+        tonalElevation = 6.dp,
+        shadowElevation = 6.dp,
         color = colorResource(id = R.color.white)
     ) {
         NavigationBar(
