@@ -3,12 +3,10 @@ package kr.baeksuk.mealpicker.navigation
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
@@ -32,7 +30,7 @@ fun BottomNavigation(navController: NavHostController) {
         color = colorResource(id = R.color.white)
     ) {
         NavigationBar(
-            containerColor = Color.Transparent // 배경색은 Surface에 맡기기
+            containerColor = Color.Transparent
         ) {
             items.forEach { item ->
                 NavigationBarItem(
@@ -45,8 +43,15 @@ fun BottomNavigation(navController: NavHostController) {
                             launchSingleTop = true
                             restoreState = true
                         }
-                    }
+                    },
+                    colors = NavigationBarItemDefaults.colors(
+                        selectedIconColor = colorResource(id = R.color.nav_click_effect_color),
+                        unselectedIconColor = Color.Gray,       // 비선택 아이콘 색
+                        selectedTextColor = colorResource(id = R.color.nav_click_effect_color),
+                        unselectedTextColor = Color.Gray        // 비선택 텍스트 색
+                    )
                 )
+
             }
         }
     }
