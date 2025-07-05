@@ -23,7 +23,7 @@ fun searchScreen(){
 
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.purple_700)),
+            .background(colorResource(id = R.color.white)),
 
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center

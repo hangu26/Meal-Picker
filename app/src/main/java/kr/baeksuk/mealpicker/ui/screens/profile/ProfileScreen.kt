@@ -26,7 +26,7 @@ fun profileScreen() {
 
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.purple_200)),
+            .background(colorResource(id = R.color.white)),
 
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
