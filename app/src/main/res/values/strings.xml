@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">오늘 뭐 먹어?</string>
+    <string name="tx_btn_recommend">오늘의 메뉴 추천 받기</string>
+
+
 </resources>
