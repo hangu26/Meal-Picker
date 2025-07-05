@@ -1,46 +1,63 @@
 package kr.baeksuk.mealpicker.ui.screens.mainscreen
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.fontResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import kr.baeksuk.mealpicker.R
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.currentBackStackEntryAsState
+import androidx.navigation.compose.rememberNavController
+import kr.baeksuk.mealpicker.navigation.BottomNavItem
+import kr.baeksuk.mealpicker.navigation.NavigationGraph
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
-import kr.baeksuk.mealpicker.ui.theme.pretendard
-import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
-import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
 @Composable
 fun mainScreen() {
 
-    MaterialTheme {
+    val navController = rememberNavController()
 
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(
-                    start = pxToDpFixedDpi(px = 96f), top = pxToDpFixedDpi(px = 60f),
-                ),
-        ) {
-
-            Text(
-                text = stringResource(id = R.string.app_name),
-                fontSize = pxToSpFixedDpi(80f),
-                fontFamily = pretendard,
-                fontWeight = FontWeight.Bold
-            )
-
+    Scaffold(
+        bottomBar = { BottomNavigation(navController = navController) }
+    ) {
+        Box(Modifier.padding(it)){
+            NavigationGraph(navController = navController)
         }
-
     }
 
+}
+
+@Composable
+fun BottomNavigation(navController: NavHostController) {
+    val items = listOf(
+        BottomNavItem.Home,
+        BottomNavItem.Search,
+        BottomNavItem.Favorite,
+        BottomNavItem.Profile
+    )
+    val currentRoute = navController.currentBackStackEntryAsState().value?.destination?.route
+
+    NavigationBar {
+        items.forEach { item ->
+            NavigationBarItem(
+                icon = { Icon(item.icon, contentDescription = item.label) },
+                label = { Text(item.label) },
+                selected = currentRoute == item.route,
+                onClick = {
+                    navController.navigate(item.route) {
+                        popUpTo(navController.graph.startDestinationId) { saveState = true }
+                        launchSingleTop = true
+                        restoreState = true
+                    }
+                }
+            )
+        }
+    }
 }
 
 @Preview(showBackground = true)
