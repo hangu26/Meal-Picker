@@ -1,4 +1,4 @@
-package kr.baeksuk.mealpicker.navigation
+package kr.baeksuk.mealpicker.ui.navigation
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
