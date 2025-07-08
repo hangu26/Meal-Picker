@@ -52,6 +52,9 @@ android {
 }
 
 dependencies {
+    implementation ("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+
+    implementation ("com.google.code.gson:gson:2.10.1")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-compiler:2.44")
