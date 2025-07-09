@@ -16,8 +16,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import kr.baeksuk.mealpicker.R
-import kr.baeksuk.mealpicker.navigation.BottomNavigation
-import kr.baeksuk.mealpicker.navigation.NavigationGraph
+import kr.baeksuk.mealpicker.ui.navigation.BottomNavigation
+import kr.baeksuk.mealpicker.ui.navigation.NavigationGraph
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.pretendard
 import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
