@@ -72,166 +72,11 @@ fun homeScreen(
         val showTextExclude by viewModel.showTextExclude.collectAsState()
         if (!showTextExclude) {
 
-            ConstraintLayout(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(colorResource(id = R.color.white)),
-
-                ) {
-                val (recommendBtn, txExclude) = createRefs()
-
-                val interactionSource = remember { MutableInteractionSource() }
-
-                val modifier = Modifier
-                    .size(pxToDpFixedDpi(px = 695f))
-                    .constrainAs(recommendBtn) {
-                        centerHorizontallyTo(parent)
-                        centerVerticallyTo(parent)
-                    }
-                    .clickable(
-                        interactionSource = interactionSource,
-                        indication = rememberRipple(
-                            bounded = true, radius = pxToDpFixedDpi(px = 348f)
-                        ),
-
-                        ) {}
-
-                val btnColor = colorResource(id = R.color.btn_recommend_color)
-
-                val btnIcon = painterResource(id = R.drawable.icon_food)
-
-                val btnText = stringResource(id = R.string.tx_btn_recommend)
-
-                val btnTextColor = colorResource(id = R.color.white)
-
-                recommendButton(modifier, btnColor, btnIcon, btnText, btnTextColor) {
-                    viewModel.btnRecommendClicked()
-                }
-
-                val marginTopToRecommend = pxToDpFixedDpi(px = 83f)
-
-                Text(modifier = Modifier
-                    .constrainAs(txExclude) {
-                        top.linkTo(recommendBtn.bottom, margin = marginTopToRecommend)
-                        start.linkTo(parent.start)
-                        end.linkTo(parent.end)
-                    }
-                    .clickable(
-                        interactionSource = remember { MutableInteractionSource() },
-                        indication = null
-                    ) {
-
-                    },
-                    text = stringResource(id = R.string.tx_exclude_food),
-                    fontSize = pxToSpFixedDpi(px = 64f),
-                    color = colorResource(id = R.color.tx_exclude_food_color),
-                    fontFamily = pretendard,
-                    fontWeight = FontWeight.Normal
-                )
-
-            }
+            RecommendBeforeView { viewModel.btnRecommendClicked() }
 
         } else {
 
-            ConstraintLayout(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(colorResource(id = R.color.white)),
-
-                ) {
-                val (recommendBtn, retryBtn, goodBtn) = createRefs()
-                val interactionSource = remember { MutableInteractionSource() }
-
-                val modifier = Modifier
-                    .size(pxToDpFixedDpi(px = 695f))
-                    .constrainAs(recommendBtn) {
-                        centerHorizontallyTo(parent)
-                        centerVerticallyTo(parent)
-                    }
-                    .clickable(
-                        interactionSource = interactionSource,
-                        indication = rememberRipple(
-                            bounded = true, radius = pxToDpFixedDpi(px = 348f)
-                        ),
-
-                        ) {}
-
-                val mainBtnColor = colorResource(id = R.color.btn_recommend_selected_color)
-
-                val mainBtnIcon = painterResource(id = R.drawable.icon_food)
-
-                val mainBtnText = recommendedFood?.name
-
-                val mainBtnTextColor = colorResource(id = R.color.black)
-
-                if (mainBtnText != null) {
-                    recommendButton(
-                        modifier, mainBtnColor, mainBtnIcon, mainBtnText, mainBtnTextColor
-                    ) {}
-                }
-
-                val marginTopRetryBtn = pxToDpFixedDpi(px = 434f)
-
-                Row(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .constrainAs(retryBtn) {
-                            top.linkTo(recommendBtn.bottom, margin = marginTopRetryBtn)
-                        }, horizontalArrangement = Arrangement.SpaceEvenly
-
-                ) {
-
-                    val retryModifier = Modifier
-                        .width(pxToDpFixedDpi(px = 550f))
-                        .height(pxToDpFixedDpi(px = 175f))
-                        .clickable(
-                            interactionSource = interactionSource,
-                            indication = rememberRipple(
-                                bounded = true, radius = pxToDpFixedDpi(px = 348f)
-                            ),
-
-                            ) {
-
-                        }
-
-                    val btnRetryColor = colorResource(id = R.color.btn_retry_color)
-
-                    val btnRetryIcon = painterResource(id = R.drawable.icon_retry)
-
-                    val txRetry = stringResource(id = R.string.tx_retry)
-
-                    val txRetryColor = colorResource(id = R.color.tx_retry_color)
-
-                    actionButton(
-                        retryModifier, btnRetryColor, btnRetryIcon, txRetry, txRetryColor
-                    ) {}
-
-                    val goodModifier = Modifier
-                        .width(pxToDpFixedDpi(px = 550f))
-                        .height(pxToDpFixedDpi(px = 175f))
-                        .clickable(
-                            interactionSource = interactionSource,
-                            indication = rememberRipple(
-                                bounded = true, radius = pxToDpFixedDpi(px = 348f)
-                            ),
-
-                            ) {
-
-                        }
-
-                    val btnGoodColor = colorResource(id = R.color.btn_recommend_color)
-
-                    val btnGoodIcon = painterResource(id = R.drawable.icon_good)
-
-                    val txGood = stringResource(id = R.string.tx_good)
-
-                    val txGoodColor = Color.White
-
-                    actionButton(goodModifier, btnGoodColor, btnGoodIcon, txGood, txGoodColor) {}
-
-                }
-
-            }
+            recommendedFood?.let { RecommendAfterView(recommendedFood = it) }
 
         }
 
@@ -332,7 +177,7 @@ fun actionButton(
 
 @Preview
 @Composable
-fun previewHome() {
+private fun previewHome() {
 
     MealPickerTheme {
 
