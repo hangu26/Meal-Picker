@@ -75,6 +75,7 @@ fun homeScreen(
 
 }
 
+/** 메인 버튼(추천 -> 랜덤 음식 이름) **/
 @Composable
 fun recommendButton(
     modifier: Modifier = Modifier,
@@ -119,6 +120,7 @@ fun recommendButton(
 
 }
 
+/** 다시하기, 좋아요 버튼 ui **/
 @Composable
 fun actionButton(
     modifier: Modifier,
