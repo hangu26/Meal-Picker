@@ -58,6 +58,8 @@ fun RecommendBeforeView(onClick : () -> Unit){
 
         val isClickable = true
 
+        TopRankFood()
+
         recommendButton(modifier, btnColor, btnIcon, btnText, btnTextColor, isClickable) {
             onClick()
         }
