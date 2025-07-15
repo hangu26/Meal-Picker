@@ -8,7 +8,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -26,7 +28,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -55,9 +59,6 @@ fun homeScreen(
         delay(3000)
         isLoading.value = false
     }
-
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -96,7 +97,7 @@ fun recommendButton(
     painter: Painter,
     btnText: String,
     btnTextColor: Color,
-    isClickable : Boolean,
+    isClickable: Boolean,
     onClick: () -> Unit
 ) {
 
@@ -182,14 +183,39 @@ fun actionButton(
     }
 }
 
+@Composable
+private fun previewHomeScreen() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.white)),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = pxToDpFixedDpi(px = 83f), start = pxToDpFixedDpi(px = 92f)),
+            text = stringResource(id = R.string.tx_rank_food), fontFamily = pretendard,
+            textAlign = TextAlign.Start,
+            fontWeight = FontWeight.Bold, fontSize = pxToSpFixedDpi(px = 60f),
+            color = colorResource(id = R.color.black),
+
+            )
+
+        RecommendBeforeView { }
+
+    }
+}
+
 @Preview
 @Composable
 private fun previewHome() {
 
     MealPickerTheme {
-        RecommendBeforeView {
-
-        }
+        previewHomeScreen()
     }
 
 }
