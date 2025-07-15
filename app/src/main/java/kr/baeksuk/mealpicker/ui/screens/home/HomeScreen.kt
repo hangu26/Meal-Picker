@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,6 +30,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import kotlinx.coroutines.delay
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.pretendard
@@ -43,10 +46,14 @@ fun homeScreen(
     val foods by viewModel.foodList
     val context = LocalContext.current
     val recommendedFood by viewModel.recommendedFood
+    val isLoading = remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.loadFoodFromAsset()
+        isLoading.value = true
+        delay(3000)
+        isLoading.value = false
     }
 
 
@@ -67,6 +74,12 @@ fun homeScreen(
 
         } else {
 
+            if (isLoading.value) {
+                RecommendLoadingView(isLoading = true) {
+
+                }
+            }
+
             recommendedFood?.let { RecommendAfterView(recommendedFood = it) }
 
         }
@@ -83,11 +96,12 @@ fun recommendButton(
     painter: Painter,
     btnText: String,
     btnTextColor: Color,
+    isClickable : Boolean,
     onClick: () -> Unit
 ) {
 
     Surface(
-        modifier = modifier.clickable { onClick() },
+        modifier = modifier.clickable(enabled = isClickable) { onClick() },
         shape = CircleShape,
         color = btnColor,
         tonalElevation = 15.dp,
@@ -173,7 +187,9 @@ fun actionButton(
 private fun previewHome() {
 
     MealPickerTheme {
+        RecommendBeforeView {
 
+        }
     }
 
 }
