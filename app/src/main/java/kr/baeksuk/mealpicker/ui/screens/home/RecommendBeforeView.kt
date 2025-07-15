@@ -56,7 +56,9 @@ fun RecommendBeforeView(onClick : () -> Unit){
 
         val btnTextColor = colorResource(id = R.color.white)
 
-        recommendButton(modifier, btnColor, btnIcon, btnText, btnTextColor) {
+        val isClickable = true
+
+        recommendButton(modifier, btnColor, btnIcon, btnText, btnTextColor, isClickable) {
             onClick()
         }
 
