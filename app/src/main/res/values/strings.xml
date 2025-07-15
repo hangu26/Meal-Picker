@@ -4,6 +4,13 @@
     <string name="tx_exclude_food">이 음식은 제외할까?</string>
     <string name="tx_retry">다시하기</string>
     <string name="tx_good">좋아</string>
-
+    <string name="tx_recommend_loading">음식 추천중…</string>
+    <string name="tx_today_food">오늘은 이거다!</string>
+    <string name="tx_koren_food">한식</string>
+    <string name="tx_japan_food">일식</string>
+    <string name="tx_chinese_food">중식</string>
+    <string name="tx_western_food">양식</string>
+    <string name="tx_fusion_food">퓨전식</string>
+    <string name="tx_rank_food">실시간 인기 PICK!</string>
 
 </resources>
