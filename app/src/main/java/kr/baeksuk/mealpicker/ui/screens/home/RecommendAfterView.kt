@@ -23,7 +23,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -37,7 +36,6 @@ import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.data.model.Food
-import kr.baeksuk.mealpicker.data.model.FoodCategory
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.pretendard
 import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
@@ -98,6 +96,8 @@ fun RecommendAfterView(recommendedFood: Food) {
                     painterResource(id = R.drawable.icon_food)
                 }
             }
+
+            TopRankFood()
 
             Column(
                 modifier = Modifier
