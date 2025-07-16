@@ -41,6 +41,7 @@ fun RecommendBeforeView(onClick : () -> Unit){
                 centerVerticallyTo(parent)
             }
             .clickable(
+                enabled = true,
                 interactionSource = interactionSource,
                 indication = rememberRipple(
                     bounded = true, radius = pxToDpFixedDpi(px = 348f)
