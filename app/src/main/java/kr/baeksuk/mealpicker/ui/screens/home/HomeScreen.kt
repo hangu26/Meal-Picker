@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -11,9 +12,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,9 +37,17 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
+import kr.baeksuk.mealpicker.ui.theme.gasoek
 import kr.baeksuk.mealpicker.ui.theme.pretendard
 import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
@@ -50,23 +61,18 @@ fun homeScreen(
     val foods by viewModel.foodList
     val context = LocalContext.current
     val recommendedFood by viewModel.recommendedFood
-    val isLoading = remember { mutableStateOf(false) }
+    val recommendLoading by viewModel.recommendLoading.collectAsState()
 
     LaunchedEffect(Unit) {
         viewModel.resetState()
         viewModel.loadFoodFromAsset()
-        isLoading.value = true
-        delay(3000)
-        isLoading.value = false
     }
-    Column(
+    Box(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.white)),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
 
-    ) {
+        ) {
 
         val showTextExclude by viewModel.showTextExclude.collectAsState()
         if (!showTextExclude) {
@@ -75,14 +81,20 @@ fun homeScreen(
 
         } else {
 
-            if (isLoading.value) {
-                RecommendLoadingView(isLoading = true) {
+            recommendedFood?.let {
 
-                }
+                RecommendAfterView(
+                    recommendedFood = it,
+                ) { viewModel.btnRecommendClicked() }
+
             }
 
-            recommendedFood?.let { RecommendAfterView(recommendedFood = it) }
+        }
 
+        if (recommendLoading) {
+            RecommendLoadingView(isLoading = true) {
+
+            }
         }
 
     }
@@ -102,11 +114,9 @@ fun recommendButton(
 ) {
 
     Surface(
-        modifier = modifier.clickable(enabled = isClickable) { onClick() },
-        shape = CircleShape,
-        color = btnColor,
-        tonalElevation = 15.dp,
-        shadowElevation = 20.dp
+        modifier = modifier, shape = CircleShape, color = btnColor, onClick = onClick,
+//        tonalElevation = 15.dp,
+//        shadowElevation = 20.dp
     ) {
 
         Column(
@@ -114,18 +124,21 @@ fun recommendButton(
             verticalArrangement = Arrangement.Center,
             modifier = Modifier.fillMaxSize()
         ) {
+            /**
             Image(
-                modifier = Modifier
-                    .width(pxToDpFixedDpi(px = 75f))
-                    .height(pxToDpFixedDpi(px = 83.33f)),
-                painter = painter,
-                contentDescription = "음식 아이콘"
+            modifier = Modifier
+            .width(pxToDpFixedDpi(px = 75f))
+            .height(pxToDpFixedDpi(px = 83.33f)),
+            painter = painter,
+            contentDescription = "음식 아이콘"
             )
+             **/
             Text(
                 text = btnText,
                 fontFamily = pretendard,
-                fontWeight = FontWeight.Black,
-                fontSize = pxToSpFixedDpi(px = 70f),
+//                fontFamily = gasoek,
+                fontWeight = FontWeight.Normal,
+                fontSize = pxToSpFixedDpi(px = 90f),
                 color = btnTextColor
             )
 
@@ -133,6 +146,22 @@ fun recommendButton(
 
     }
 
+}
+
+@Composable
+fun btnRecommendAnimLoader(onClick: () -> Unit) {
+    val composition by rememberLottieComposition(LottieCompositionSpec.Asset("btn_recommend.json"))
+
+    val progress by animateLottieCompositionAsState(
+        composition = composition, iterations = Int.MAX_VALUE
+    )
+
+    LottieAnimation(composition = composition, progress = { progress }, modifier = Modifier
+        .size(
+            pxToDpFixedDpi(px = 695f)
+        )
+        .background(colorResource(id = R.color.white))
+        .clickable { onClick() })
 }
 
 /** 다시하기, 좋아요 버튼 ui **/
@@ -147,7 +176,7 @@ fun actionButton(
 ) {
 
     Surface(
-        modifier = modifier,
+        modifier = modifier.clickable { onClick() },
         shape = RoundedCornerShape(pxToDpFixedDpi(px = 90f)),
         color = btnColor,
         tonalElevation = 15.dp,
@@ -193,17 +222,6 @@ private fun previewHomeScreen() {
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
-
-        Text(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = pxToDpFixedDpi(px = 83f), start = pxToDpFixedDpi(px = 92f)),
-            text = stringResource(id = R.string.tx_rank_food), fontFamily = pretendard,
-            textAlign = TextAlign.Start,
-            fontWeight = FontWeight.Bold, fontSize = pxToSpFixedDpi(px = 60f),
-            color = colorResource(id = R.color.black),
-
-            )
 
         RecommendBeforeView { }
 

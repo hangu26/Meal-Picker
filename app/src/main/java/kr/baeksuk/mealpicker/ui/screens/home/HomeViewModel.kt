@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -24,11 +25,14 @@ class HomeViewModel @Inject constructor(private val application: Application) :
     private val _showToast = MutableSharedFlow<String>()
     val showToast = _showToast.asSharedFlow()
 
+    private val _recommendLoading = MutableStateFlow<Boolean>(false)
+    val recommendLoading: StateFlow<Boolean> = _recommendLoading
+
     private val _foodList = mutableStateOf<List<Food>>(emptyList())
     val foodList: State<List<Food>> = _foodList
 
     private val _showTextExclude = MutableStateFlow<Boolean>(false)
-    val showTextExclude : StateFlow<Boolean> = _showTextExclude
+    val showTextExclude: StateFlow<Boolean> = _showTextExclude
 
     private val _recommendedFood = mutableStateOf<Food?>(null)
     val recommendedFood: State<Food?> = _recommendedFood
@@ -39,16 +43,42 @@ class HomeViewModel @Inject constructor(private val application: Application) :
 
     fun btnRecommendClicked() {
         viewModelScope.launch {
-            if (_foodList.value.isNotEmpty()) {
-                val randomFood = _foodList.value.random()
-                _recommendedFood.value = randomFood
-                _showToast.emit("추천 음식: ${randomFood.name}")
-            } else {
-                _showToast.emit("음식 리스트를 가져오는 중입니다.")
-            }
 
-            _showTextExclude.value = true
+            startLoading()
+
+            // 3. 2.5초 동안 로딩만 보여줌
+            delay(2500)
+
+            recommendFood()
+
+            endLoading()
         }
+    }
+
+    private suspend fun startLoading() {
+
+        _recommendLoading.value = true
+        _showTextExclude.value = false
+
+    }
+
+    private suspend fun endLoading() {
+
+        _recommendLoading.value = false
+        _showTextExclude.value = true
+
+    }
+
+    private suspend fun recommendFood() {
+
+        if (_foodList.value.isNotEmpty()) {
+            val randomFood = _foodList.value.random()
+            _recommendedFood.value = randomFood
+            _showToast.emit("추천 음식: ${randomFood.name}")
+        } else {
+            _showToast.emit("음식 리스트를 가져오는 중입니다.")
+        }
+
     }
 
     fun loadFoodFromAsset() {
@@ -65,7 +95,7 @@ class HomeViewModel @Inject constructor(private val application: Application) :
 
                 _showToast.emit("음식 ${parsed.size}개 불러옴")
 
-            } catch (e : Exception){
+            } catch (e: Exception) {
                 _showToast.emit("불러오기 실패: ${e.localizedMessage}")
             }
         }
