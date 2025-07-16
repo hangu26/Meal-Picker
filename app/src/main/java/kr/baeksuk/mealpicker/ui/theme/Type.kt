@@ -45,3 +45,7 @@ val pretendard = FontFamily(
     Font(R.font.pretendard_regular, FontWeight.Normal, FontStyle.Normal),
     Font(R.font.pretendard_semibold, FontWeight.SemiBold, FontStyle.Normal),
 )
+
+val gasoek = FontFamily(
+    Font(R.font.gasoek_one_regular, FontWeight.Normal, FontStyle.Normal)
+)
