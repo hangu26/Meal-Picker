@@ -30,6 +30,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.pretendard
+import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
 @Composable
@@ -38,8 +39,11 @@ fun RecommendLoadingView(
     onClick: () -> Unit
 ) {
 
-    Box(modifier = Modifier.fillMaxSize()) {
-        RecommendBeforeView(onClick)
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(top = pxToDpFixedDpi(px = 60f))
+    ) {
 
         if (isLoading) {
             Box(
@@ -58,12 +62,16 @@ fun RecommendLoadingView(
                 ) {
                     AnimLoader()
 
-                    Text(text = stringResource(id = R.string.tx_recommend_loading), color = colorResource(
-                        id = R.color.white
-                    ), fontFamily = pretendard, fontSize = pxToSpFixedDpi(px = 75f),
-                        fontWeight = FontWeight.Bold)
+                    Text(
+                        text = stringResource(id = R.string.tx_recommend_loading),
+                        color = colorResource(
+                            id = R.color.white
+                        ),
+                        fontFamily = pretendard,
+                        fontSize = pxToSpFixedDpi(px = 75f),
+                        fontWeight = FontWeight.Bold
+                    )
                 }
-
 
 
             }
