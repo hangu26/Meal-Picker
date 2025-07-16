@@ -42,7 +42,8 @@ import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
 @Composable
-fun RecommendAfterView(recommendedFood: Food) {
+fun RecommendAfterView(recommendedFood: Food,
+                       onRetryClick : () -> Unit) {
 
     Box(
         modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center // 정가운데 정렬!
@@ -164,7 +165,9 @@ fun RecommendAfterView(recommendedFood: Food) {
 
                 actionButton(
                     retryModifier, btnRetryColor, btnRetryIcon, txRetry, txRetryColor
-                ) {}
+                ) {
+                    onRetryClick()
+                }
 
                 val goodModifier = Modifier
                     .width(pxToDpFixedDpi(px = 550f))
@@ -219,6 +222,6 @@ fun SparkleLoader() {
 @Composable
 private fun preview() {
     MealPickerTheme {
-        RecommendAfterView(Food())
+        RecommendAfterView(Food()){}
     }
 }
