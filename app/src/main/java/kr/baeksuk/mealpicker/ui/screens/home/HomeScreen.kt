@@ -169,7 +169,7 @@ fun btnRecommendAnimLoader(onClick: () -> Unit) {
 fun actionButton(
     modifier: Modifier,
     btnColor: Color,
-    btnIcon: Painter,
+    btnIcon: Painter?,
     txButton: String,
     txColor: Color,
     onClick: () -> Unit
@@ -189,13 +189,15 @@ fun actionButton(
             horizontalArrangement = Arrangement.Center
         ) {
 
-            Image(
-                modifier = Modifier
-                    .width(pxToDpFixedDpi(px = 76f))
-                    .height(pxToDpFixedDpi(px = 76f)),
-                painter = btnIcon,
-                contentDescription = "다시 하기 버튼"
-            )
+            if (btnIcon != null) {
+                Image(
+                    modifier = Modifier
+                        .width(pxToDpFixedDpi(px = 76f))
+                        .height(pxToDpFixedDpi(px = 76f)),
+                    painter = btnIcon,
+                    contentDescription = "다시 하기 버튼"
+                )
+            }
 
             Spacer(modifier = Modifier.width(pxToDpFixedDpi(24f)))
 
