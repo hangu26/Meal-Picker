@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
@@ -17,6 +18,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.constraintlayout.compose.ConstraintLayout
 import kr.baeksuk.mealpicker.R
+import kr.baeksuk.mealpicker.ui.dialog.ExcludeDialog
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.pretendard
 import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
@@ -24,6 +26,13 @@ import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
 @Composable
 fun RecommendBeforeView(onClick : () -> Unit){
+
+    val showDialog = remember { mutableStateOf(false) }
+
+    if (showDialog.value) {
+        ExcludeDialog(onDismiss = { showDialog.value = false })
+    }
+
     ConstraintLayout(
         modifier = Modifier
             .fillMaxSize()
@@ -77,7 +86,7 @@ fun RecommendBeforeView(onClick : () -> Unit){
                 interactionSource = remember { MutableInteractionSource() },
                 indication = null
             ) {
-
+                showDialog.value = true
             },
             text = stringResource(id = R.string.tx_exclude_food),
             fontSize = pxToSpFixedDpi(px = 64f),
