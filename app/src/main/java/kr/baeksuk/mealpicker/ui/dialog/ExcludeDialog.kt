@@ -123,7 +123,7 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
                         txCategory = stringResource(id = category.textRes)
                     )
                     if (index != 1) {
-                        SpaceWidth(150f)
+                        SpaceWidth(120f)
                     }
                 }
             }
