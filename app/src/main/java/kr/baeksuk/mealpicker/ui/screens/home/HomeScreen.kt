@@ -74,8 +74,8 @@ fun homeScreen(
 
         ) {
 
-        val showTextExclude by viewModel.showTextExclude.collectAsState()
-        if (!showTextExclude) {
+        val beforeRecommend by viewModel.showTextExclude.collectAsState()
+        if (!beforeRecommend) {
 
             RecommendBeforeView { viewModel.btnRecommendClicked() }
 
