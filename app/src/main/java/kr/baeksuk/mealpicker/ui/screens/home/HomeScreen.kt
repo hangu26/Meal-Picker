@@ -135,8 +135,8 @@ fun recommendButton(
              **/
             Text(
                 text = btnText,
-                fontFamily = pretendard,
-//                fontFamily = gasoek,
+//                fontFamily = pretendard,
+                fontFamily = gasoek,
                 fontWeight = FontWeight.Normal,
                 fontSize = pxToSpFixedDpi(px = 90f),
                 color = btnTextColor
