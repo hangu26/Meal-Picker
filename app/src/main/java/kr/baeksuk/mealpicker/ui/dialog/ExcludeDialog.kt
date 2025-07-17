@@ -6,8 +6,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
@@ -25,6 +27,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
@@ -36,6 +39,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.data.model.FoodCategory
 import kr.baeksuk.mealpicker.ui.components.ExcludeDialogButton
@@ -46,6 +53,7 @@ import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 import kr.baeksuk.mealpicker.util.util.SpaceHeight
 import kr.baeksuk.mealpicker.util.util.SpaceWidth
+import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 fun ExcludeDialog(onDismiss: () -> Unit) {
@@ -138,7 +146,7 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
 
             SpaceHeight(spaceSize = 99f)
 
-            Row (modifier = Modifier.fillMaxWidth(),horizontalArrangement = Arrangement.Center){
+            Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.Center) {
 
                 ExcludeDialogButton(
                     modifier = closeModifier,
@@ -230,13 +238,36 @@ fun CategoryButton(
 
         SpaceHeight(5f)
 
+        /**
         Image(
-            painter = painter,
-            contentDescription = "음식",
-            modifier = Modifier
-                .width(pxToDpFixedDpi(px = 192f))
-                .height(pxToDpFixedDpi(px = 200f))
+        painter = painter,
+        contentDescription = "음식",
+        modifier = Modifier
+        .width(pxToDpFixedDpi(px = 192f))
+        .height(pxToDpFixedDpi(px = 200f))
         )
+
+         **/
+
+        Box(
+            modifier = Modifier
+                .width(pxToDpFixedDpi(192f))
+                .height(pxToDpFixedDpi(200f))
+        ) {
+
+            Image(
+                painter = painter,
+                contentDescription = "음식",
+                modifier = Modifier.fillMaxSize()
+            )
+
+            if (isSelected) {
+
+                AnimExcludeLoader(modifier = Modifier.align(Alignment.Center))
+
+            }
+
+        }
 
         Text(
             txCategory,
@@ -253,6 +284,19 @@ fun CategoryButton(
         SpaceHeight(10f)
 
     }
+
+}
+
+@Composable
+fun AnimExcludeLoader(modifier: Modifier) {
+
+    val composition by rememberLottieComposition(LottieCompositionSpec.Asset("anim_exclude.json"))
+
+    val progress by animateLottieCompositionAsState(composition = composition, iterations = 1)
+
+    LottieAnimation(
+        composition = composition, progress = { progress }, modifier = modifier
+    )
 
 }
 
