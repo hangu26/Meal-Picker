@@ -58,7 +58,7 @@ class HomeViewModel @Inject constructor(private val application: Application) :
     private suspend fun startLoading() {
 
         _recommendLoading.value = true
-        _showTextExclude.value = false
+//        _showTextExclude.value = false
 
     }
 
