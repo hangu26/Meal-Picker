@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">오늘 뭐 먹어?</string>
-    <string name="tx_btn_recommend">오늘의 메뉴 추천 받기</string>
+    <string name="tx_btn_recommend">오늘의 음식은?</string>
     <string name="tx_exclude_food">이 음식은 제외할까?</string>
     <string name="tx_retry">다시하기</string>
     <string name="tx_good">좋아</string>
@@ -12,5 +12,7 @@
     <string name="tx_western_food">양식</string>
     <string name="tx_fusion_food">퓨전식</string>
     <string name="tx_rank_food">실시간 인기 PICK!</string>
+    <string name="tx_splash_02">당신의 완벽한 한 끼를 찾아드릴게요.</string>
+    <string name="tx_not_this_food">이건 안먹을래</string>
 
 </resources>

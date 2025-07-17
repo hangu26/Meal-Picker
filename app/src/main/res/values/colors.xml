@@ -7,9 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="btn_recommend_color">#D95B4E</color>
+    <color name="btn_recommend_color">#E17C71</color>
     <color name="btn_recommend_selected_color">#F4CECA</color>
     <color name="nav_click_effect_color">#D95B4E</color>
+    <color name="app_color">#D95B4E</color>
     <color name="tx_exclude_food_color">#828282</color>
     <color name="btn_retry_color">#FFE3DC</color>
     <color name="tx_retry_color">#827470</color>
