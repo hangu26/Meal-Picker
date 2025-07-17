@@ -14,6 +14,8 @@
     <color name="tx_exclude_food_color">#828282</color>
     <color name="btn_retry_color">#FFE3DC</color>
     <color name="tx_retry_color">#827470</color>
+    <color name="selected_category_background">#f9f9f9</color>
+    <color name="background_btn_cancel">#FFF4F2</color>
 
 
 </resources>
