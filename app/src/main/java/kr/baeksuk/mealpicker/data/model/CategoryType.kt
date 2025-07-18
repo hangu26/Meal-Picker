@@ -13,5 +13,5 @@ enum class FoodCategory(
     CHINESE(R.drawable.btn_chinese_food, R.string.tx_chinese_food),
     JAPANESE(R.drawable.btn_japanese_food, R.string.tx_japan_food),
     WESTERN(R.drawable.btn_western_food, R.string.tx_western_food),
-    FUSION(R.drawable.btn_fusion_food, R.string.tx_fusion_food)
+    FUSION(R.drawable.btn_fusion_food, R.string.tx_fusion_food_02)
 }
