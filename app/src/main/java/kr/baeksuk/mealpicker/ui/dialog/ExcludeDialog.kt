@@ -1,5 +1,6 @@
 package kr.baeksuk.mealpicker.ui.dialog
 
+import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -21,7 +22,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -30,6 +34,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -39,6 +44,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
@@ -46,6 +52,7 @@ import com.airbnb.lottie.compose.rememberLottieComposition
 import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.data.model.FoodCategory
 import kr.baeksuk.mealpicker.ui.components.ExcludeDialogButton
+import kr.baeksuk.mealpicker.ui.screens.home.HomeViewModel
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.gasoek
 import kr.baeksuk.mealpicker.ui.theme.pretendard
@@ -53,7 +60,6 @@ import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 import kr.baeksuk.mealpicker.util.util.SpaceHeight
 import kr.baeksuk.mealpicker.util.util.SpaceWidth
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
 
 @Composable
 fun ExcludeDialog(onDismiss: () -> Unit) {
@@ -76,7 +82,14 @@ fun ExcludeDialog(onDismiss: () -> Unit) {
 @Composable
 fun ExcludeDialogContent(onDismiss: () -> Unit) {
 
+    val viewModel: HomeViewModel = hiltViewModel()
+    val context = LocalContext.current
+
     val categories = FoodCategory.entries.toTypedArray()
+    val selectedCategories = remember { mutableStateListOf<String>() }
+    val selectedCount = remember {
+        mutableIntStateOf(0)
+    }
 
     Surface(
         tonalElevation = 10.dp,
@@ -113,8 +126,18 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
                 categories.take(3).forEach { category ->
                     CategoryButton(
                         painter = painterResource(id = category.imageRes),
-                        txCategory = stringResource(id = category.textRes)
-                    )
+                        txCategory = stringResource(id = category.textRes),
+                    ) { name, selected ->
+
+                        if (selected) {
+                            selectedCategories.add(name)
+                            selectedCount.intValue++
+                        } else {
+                            selectedCategories.remove(name)
+                            selectedCount.intValue--
+                        }
+
+                    }
                 }
             }
 
@@ -126,10 +149,23 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 categories.drop(3).forEachIndexed { index, category ->
+                    /** 버튼이 클릭(체크) 되면 selectedCategories에 해당 카테고리 이름 추가
+                     * 클릭된 버튼 개수 selectedCount 증가
+                     * -> viewModel 로 전달 -> viewModel 에서 실질적 제외 로직 처리 **/
                     CategoryButton(
                         painter = painterResource(id = category.imageRes),
-                        txCategory = stringResource(id = category.textRes)
-                    )
+                        txCategory = stringResource(id = category.textRes),
+                    ) { name, selected ->
+
+                        if (selected) {
+                            selectedCategories.add(name)
+                            selectedCount.intValue++
+                        } else {
+                            selectedCategories.remove(name)
+                            selectedCount.intValue--
+                        }
+
+                    }
                     if (index != 1) {
                         SpaceWidth(120f)
                     }
@@ -175,8 +211,23 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
                     txButton = txExclude,
                     txColor = colorResource(
                         id = R.color.white
-                    )
-                ) {
+                    ),
+
+                    ) {
+
+                    if (selectedCategories.isNotEmpty()) {
+
+                        /** 모든 카테고리를 제외하는걸 방지 **/
+                        if (selectedCount.intValue < categories.size) {
+                            /** viewModel에서 제외하는 로직 **/
+                            viewModel.recommendFoodExcludingCategory(selectedCategories)
+                            onDismiss()
+                        } else {
+                            Toast.makeText(context, "최소 하나의 카테고리를 남겨주세요.", Toast.LENGTH_SHORT)
+                                .show()
+                        }
+
+                    }
 
                 }
 
@@ -197,7 +248,7 @@ fun ExcludeDialogContent(onDismiss: () -> Unit) {
 fun CategoryButton(
     painter: Painter,
     txCategory: String,
-    onClickCheck: () -> Unit = {}
+    onClickCheck: (String, Boolean) -> Unit
 ) {
 
     var isSelected by remember {
@@ -222,7 +273,10 @@ fun CategoryButton(
                 shape = RoundedCornerShape(pxToDpFixedDpi(px = 20f))
             )
             .background(backgroundColor)
-            .clickable { isSelected = !isSelected },
+            .clickable {
+                isSelected = !isSelected
+                onClickCheck(txCategory, isSelected)
+            },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
 
@@ -305,7 +359,7 @@ fun AnimExcludeLoader(modifier: Modifier) {
 fun previewExcludeDialog() {
 
     MealPickerTheme {
-        ExcludeDialog() {}
+        ExcludeDialogContent() {}
     }
 
 }
