@@ -1,6 +1,7 @@
 package kr.baeksuk.mealpicker.ui.screens.home
 
 import android.app.Application
+import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.AndroidViewModel
@@ -31,11 +32,12 @@ class HomeViewModel @Inject constructor(private val application: Application) :
     private val _foodList = mutableStateOf<List<Food>>(emptyList())
     val foodList: State<List<Food>> = _foodList
 
+    private val _recommendedFood = mutableStateOf<Food?>(null)
+    val recommendedFood: State<Food?> = _recommendedFood
+
     private val _showTextExclude = MutableStateFlow<Boolean>(false)
     val showTextExclude: StateFlow<Boolean> = _showTextExclude
 
-    private val _recommendedFood = mutableStateOf<Food?>(null)
-    val recommendedFood: State<Food?> = _recommendedFood
 
     fun resetState() {
         _showTextExclude.value = false
@@ -79,6 +81,19 @@ class HomeViewModel @Inject constructor(private val application: Application) :
             _showToast.emit("음식 리스트를 가져오는 중입니다.")
         }
 
+    }
+
+    /** 카테고리 제외하기 적용 함수 **/
+    fun recommendFoodExcludingCategory(categories: List<String>) {
+
+        _foodList.value = _foodList.value.filter  { it.category !in categories }
+        if (_foodList.value.isNotEmpty()) {
+            _recommendedFood.value = _foodList.value.random()
+            Log.e("음식 필터링", _foodList.value.toString())
+
+        } else {
+            _recommendedFood.value = null
+        }
     }
 
     fun loadFoodFromAsset() {
