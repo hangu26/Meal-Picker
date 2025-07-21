@@ -67,38 +67,39 @@ fun homeScreen(
         viewModel.resetState()
         viewModel.loadFoodFromAsset()
     }
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.white)),
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(colorResource(id = R.color.white)),
 
-        ) {
+            ) {
 
-        val beforeRecommend by viewModel.showTextExclude.collectAsState()
-        if (!beforeRecommend) {
+            val beforeRecommend by viewModel.showTextExclude.collectAsState()
+            if (!beforeRecommend) {
 
-            RecommendBeforeView { viewModel.btnRecommendClicked() }
+                RecommendBeforeView() { viewModel.btnRecommendClicked() }
 
-        } else {
+            } else {
 
-            recommendedFood?.let {
+                recommendedFood?.let {
 
-                RecommendAfterView(
-                    recommendedFood = it,
-                ) { viewModel.btnRecommendClicked() }
+                    RecommendAfterView(
+                        recommendedFood = it,
+                    ) { viewModel.btnRecommendClicked() }
 
+                } ?: run{
+
+                }
+
+            }
+
+            if (recommendLoading) {
+                RecommendLoadingView(isLoading = true) {
+
+                }
             }
 
         }
-
-        if (recommendLoading) {
-            RecommendLoadingView(isLoading = true) {
-
-            }
-        }
-
-    }
-
 }
 
 /** 메인 버튼(추천 -> 랜덤 음식 이름) **/
@@ -225,7 +226,7 @@ private fun previewHomeScreen() {
 
     ) {
 
-        RecommendBeforeView { }
+        RecommendBeforeView() { }
 
     }
 }
