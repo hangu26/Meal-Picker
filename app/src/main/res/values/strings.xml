@@ -11,6 +11,7 @@
     <string name="tx_chinese_food">중식</string>
     <string name="tx_western_food">양식</string>
     <string name="tx_fusion_food">퓨전식</string>
+    <string name="tx_fusion_food_02">퓨전</string>
     <string name="tx_rank_food">실시간 인기 PICK!</string>
     <string name="tx_splash_02">당신의 완벽한 한 끼를 찾아드릴게요.</string>
     <string name="tx_not_this_food">이건 안먹을래</string>
