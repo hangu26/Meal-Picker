@@ -92,7 +92,7 @@ fun RecommendAfterView(recommendedFood: Food,
                 "중식" -> painterResource(id = R.drawable.icon_chinese_food)
                 "일식" -> painterResource(id = R.drawable.icon_japan_food)
                 "양식" -> painterResource(id = R.drawable.icon_western_food)
-                "퓨전" -> painterResource(id = R.drawable.icon_western_food)
+                "퓨전" -> painterResource(id = R.drawable.icon_fusion_food)
                 else ->{
                     painterResource(id = R.drawable.icon_food)
                 }
