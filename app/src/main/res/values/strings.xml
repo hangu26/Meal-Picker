@@ -20,5 +20,6 @@
     <string name="tx_btn_recommend_01">뭘 먹을지 고민된다면?</string>
     <string name="tx_btn_recommend_02">AI가 당신의 취향을 분석해서 추천해드려요!</string>
     <string name="tx_today_recommend_food">오늘의 음식은? 🍽️</string>
+    <string name="tx_hot">HOT</string>
 
 </resources>
