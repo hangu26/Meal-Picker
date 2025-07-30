@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "420537916904",
+    "project_id": "meal-picker-45ee0",
+    "storage_bucket": "meal-picker-45ee0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:420537916904:android:bf347b28576fa3f8a0985d",
+        "android_client_info": {
+          "package_name": "kr.baeksuk.mealpicker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCREAuzbF4lX6hky62oCaBqY26F7l9QAlY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
