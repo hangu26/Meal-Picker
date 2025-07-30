@@ -3,6 +3,7 @@ package kr.baeksuk.mealpicker.ui.screens.home
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.rememberRipple
@@ -49,6 +51,7 @@ import kr.baeksuk.mealpicker.R
 import kr.baeksuk.mealpicker.ui.theme.MealPickerTheme
 import kr.baeksuk.mealpicker.ui.theme.gasoek
 import kr.baeksuk.mealpicker.ui.theme.pretendard
+import kr.baeksuk.mealpicker.util.util.SpaceHeight
 import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
@@ -67,39 +70,39 @@ fun homeScreen(
         viewModel.resetState()
         viewModel.loadFoodFromAsset()
     }
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(colorResource(id = R.color.white)),
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(colorResource(id = R.color.white)),
 
-            ) {
+        ) {
 
-            val beforeRecommend by viewModel.showTextExclude.collectAsState()
-            if (!beforeRecommend) {
+        val beforeRecommend by viewModel.showTextExclude.collectAsState()
+        if (!beforeRecommend) {
 
-                RecommendBeforeView() { viewModel.btnRecommendClicked() }
+            RecommendBeforeView() { viewModel.btnRecommendClicked() }
 
-            } else {
+        } else {
 
-                recommendedFood?.let {
+            recommendedFood?.let {
 
-                    RecommendAfterView(
-                        recommendedFood = it,
-                    ) { viewModel.btnRecommendClicked() }
+                RecommendAfterView(
+                    recommendedFood = it,
+                ) { viewModel.btnRecommendClicked() }
 
-                } ?: run{
+            } ?: run {
 
-                }
-
-            }
-
-            if (recommendLoading) {
-                RecommendLoadingView(isLoading = true) {
-
-                }
             }
 
         }
+
+        if (recommendLoading) {
+            RecommendLoadingView(isLoading = true) {
+
+            }
+        }
+
+    }
 }
 
 /** 메인 버튼(추천 -> 랜덤 음식 이름) **/
@@ -115,33 +118,85 @@ fun recommendButton(
 ) {
 
     Surface(
-        modifier = modifier, shape = CircleShape, color = btnColor, onClick = onClick,
-//        tonalElevation = 15.dp,
-//        shadowElevation = 20.dp
+        modifier = modifier,
+        shape = RoundedCornerShape(pxToDpFixedDpi(px = 48f)),
+        color = btnColor,
+//        onClick = onClick,
     ) {
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             /**
-            Image(
-            modifier = Modifier
-            .width(pxToDpFixedDpi(px = 75f))
-            .height(pxToDpFixedDpi(px = 83.33f)),
-            painter = painter,
-            contentDescription = "음식 아이콘"
+            Text(
+            text = btnText,
+            fontFamily = gasoek,
+            fontWeight = FontWeight.Normal,
+            fontSize = pxToSpFixedDpi(px = 90f),
+            color = btnTextColor
             )
              **/
+
+            SpaceHeight(spaceSize = 72f)
+
             Text(
-                text = btnText,
-//                fontFamily = pretendard,
-                fontFamily = gasoek,
-                fontWeight = FontWeight.Normal,
-                fontSize = pxToSpFixedDpi(px = 90f),
-                color = btnTextColor
+                text = stringResource(id = R.string.tx_btn_recommend_01),
+                color = Color.White,
+                fontFamily = pretendard,
+                fontWeight = FontWeight.Bold,
+                fontSize = pxToSpFixedDpi(px = 60f)
             )
+
+            SpaceHeight(spaceSize = 23f)
+
+            Text(
+                text = stringResource(id = R.string.tx_btn_recommend_02),
+                color = Color.White,
+                fontFamily = pretendard,
+                fontWeight = FontWeight.Normal,
+                fontSize = pxToSpFixedDpi(px = 42f)
+            )
+
+            SpaceHeight(spaceSize = 47f)
+
+            val interactionSource = remember { MutableInteractionSource() }
+
+            Surface(
+                modifier = Modifier
+                    .clickable(
+                        enabled = true,
+                        interactionSource = interactionSource,
+                        indication = rememberRipple(
+                            bounded = true, radius = pxToDpFixedDpi(px = 36f)
+                        ),
+
+                        ) { }
+                    .width(pxToDpFixedDpi(px = 572f))
+                    .height(pxToDpFixedDpi(px = 144f)),
+                shape = RoundedCornerShape(pxToDpFixedDpi(px = 36f)),
+                onClick = onClick,
+            ) {
+
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center,
+                ) {
+
+                    Text(
+                        text = stringResource(id = R.string.tx_today_recommend_food),
+                        fontFamily = pretendard,
+                        fontWeight = FontWeight.Bold,
+                        fontSize = pxToSpFixedDpi(px = 48f),
+                        color = colorResource(id = R.color.app_color)
+                    )
+
+                }
+
+            }
+
+            SpaceHeight(spaceSize = 72f)
 
         }
 

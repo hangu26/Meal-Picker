@@ -4,7 +4,11 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.ripple.rememberRipple
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +29,7 @@ import kr.baeksuk.mealpicker.util.util.pxToDpFixedDpi
 import kr.baeksuk.mealpicker.util.util.pxToSpFixedDpi
 
 @Composable
-fun RecommendBeforeView(onClick : () -> Unit){
+fun RecommendBeforeView(onClick: () -> Unit) {
 
     val showDialog = remember { mutableStateOf(false) }
 
@@ -44,19 +48,25 @@ fun RecommendBeforeView(onClick : () -> Unit){
         val interactionSource = remember { MutableInteractionSource() }
 
         val modifier = Modifier
-            .size(pxToDpFixedDpi(px = 695f))
+            .fillMaxWidth()
+            .padding(start = pxToDpFixedDpi(px = 76f), end = pxToDpFixedDpi(px = 76f))
+            .wrapContentHeight()
             .constrainAs(recommendBtn) {
                 centerHorizontallyTo(parent)
                 centerVerticallyTo(parent)
             }
-            .clickable(
-                enabled = true,
-                interactionSource = interactionSource,
-                indication = rememberRipple(
-                    bounded = true, radius = pxToDpFixedDpi(px = 348f)
-                ),
 
-                ) {}
+        /**
+        .clickable(
+        enabled = true,
+        interactionSource = interactionSource,
+        indication = rememberRipple(
+        bounded = true, radius = pxToDpFixedDpi(px = 348f)
+        ),
+
+        )
+        {}
+         **/
 
         val btnColor = colorResource(id = R.color.btn_recommend_color)
 
@@ -100,8 +110,8 @@ fun RecommendBeforeView(onClick : () -> Unit){
 
 @Preview
 @Composable
-private fun preview(){
+private fun preview() {
     MealPickerTheme {
-        RecommendBeforeView(){}
+        RecommendBeforeView() {}
     }
 }

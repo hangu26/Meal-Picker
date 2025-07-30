@@ -17,5 +17,8 @@
     <string name="tx_not_this_food">이건 안먹을래</string>
     <string name="tx_close">취소하기</string>
     <string name="tx_exclude">제외하기</string>
+    <string name="tx_btn_recommend_01">뭘 먹을지 고민된다면?</string>
+    <string name="tx_btn_recommend_02">AI가 당신의 취향을 분석해서 추천해드려요!</string>
+    <string name="tx_today_recommend_food">오늘의 음식은? 🍽️</string>
 
 </resources>
