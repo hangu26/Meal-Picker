@@ -1,14 +1,14 @@
 [
   {
     "category": "한식",
-    "mainType" : "찌개",
+    "mainType": "찌개",
     "name": "김치찌개",
     "description": "매콤한 김치와 돼지고기를 넣어 끓인 찌개",
     "imageUrl": ""
   },
   {
     "category": "한식",
-    "mainType" : "밥",
+    "mainType": "밥",
     "name": "불고기",
     "description": "달콤한 양념에 재운 소고기 구이",
     "imageUrl": ""
@@ -29,7 +29,7 @@
   },
   {
     "category": "한식",
-    "mainType" : "고기",
+    "mainType": "고기",
     "name": "삼겹살",
     "description": "두툼한 돼지고기를 구워 먹는 요리",
     "imageUrl": ""
@@ -635,316 +635,774 @@
     "description": "크림 떡볶이",
     "imageUrl": ""
   },
-    {
-      "category": "한식",
-      "mainType": "밥",
-      "name": "꼬막비빔밥",
-      "description": "양념한 꼬막과 밥을 비벼 먹는 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "",
-      "name": "김치찜",
-      "description": "묵은지를 돼지고기와 함께 찐 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "",
-      "name": "김치전",
-      "description": "김치를 넣어 바삭하게 부친 전",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "찌개",
-      "name": "순대국밥",
-      "description": "순대와 돼지 내장이 들어간 진한 국밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "찌개",
-      "name": "북엇국",
-      "description": "말린 북어와 계란을 넣어 끓인 국",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "해산물",
-      "name": "매운탕",
-      "description": "생선을 넣고 얼큰하게 끓인 찌개",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "고기",
-      "name": "장어구이",
-      "description": "양념한 장어를 구운 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "한식",
-      "mainType": "면",
-      "name": "열무국수",
-      "description": "열무김치와 국수를 함께 먹는 시원한 요리",
-      "imageUrl": ""
-    },
-  
-    {
-      "category": "중식",
-      "mainType": "찌개",
-      "name": "마라탕",
-      "description": "중국식 매운 국물 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "",
-      "name": "마라샹궈",
-      "description": "중국식 매운 볶음 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "고기",
-      "name": "꿔바로우",
-      "description": "바삭한 돼지고기에 새콤한 소스를 입힌 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "",
-      "name": "지삼선",
-      "description": "가지, 감자, 피망을 볶은 채식 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "",
-      "name": "딤섬",
-      "description": "작은 만두류의 중국식 간식",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "",
-      "name": "샤오롱바오",
-      "description": "국물이 들어간 중국식 찐만두",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "면",
-      "name": "우육면",
-      "description": "소고기를 넣은 중국식 국수",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "밥",
-      "name": "차오판",
-      "description": "중국식 볶음밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "면",
-      "name": "탄탄면",
-      "description": "매운 땅콩 소스를 얹은 면 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "중식",
-      "mainType": "",
-      "name": "계란토마토볶음",
-      "description": "계란과 토마토를 볶은 가정식 요리",
-      "imageUrl": ""
-    },
-  
-    {
-      "category": "일식",
-      "mainType": "",
-      "name": "스키야키",
-      "description": "소고기와 채소를 달콤한 육수에 끓인 전골",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "",
-      "name": "나베",
-      "description": "일본식 전골 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "밥",
-      "name": "텐동",
-      "description": "튀김을 올린 일본식 덮밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "해산물",
-      "name": "치라시스시",
-      "description": "여러 가지 해산물을 얹은 초밥밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "밥",
-      "name": "가츠카레",
-      "description": "돈가스를 올린 카레밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "",
-      "name": "사바정식",
-      "description": "고등어 구이를 곁들인 일본식 정식",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "",
-      "name": "타마고야끼",
-      "description": "달콤한 계란말이",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "밥",
-      "name": "스시롤",
-      "description": "김으로 말아 만든 일본식 롤",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "밥",
-      "name": "도리동",
-      "description": "닭고기와 계란을 올린 덮밥",
-      "imageUrl": ""
-    },
-    {
-      "category": "일식",
-      "mainType": "",
-      "name": "규카츠",
-      "description": "소고기 튀김 요리",
-      "imageUrl": ""
-    },
-  
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "브런치 플레이트",
-      "description": "달걀, 소시지, 빵을 곁들인 아침식사",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "치즈오믈렛",
-      "description": "치즈를 넣은 부드러운 오믈렛",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "머쉬룸스프",
-      "description": "버섯을 갈아 만든 부드러운 수프",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "고기",
-      "name": "로스트치킨",
-      "description": "오븐에 구운 닭요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "샐러드",
-      "name": "시저샐러드",
-      "description": "로메인과 크루통에 시저드레싱을 곁들인 샐러드",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "빵",
-      "name": "토스트아보카도",
-      "description": "구운 빵 위에 으깬 아보카도를 올린 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "콘치즈",
-      "description": "옥수수에 치즈를 얹고 구운 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "고기",
-      "name": "포크찹",
-      "description": "돼지고기 스테이크 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "칠리치즈프라이즈",
-      "description": "감자튀김에 칠리와 치즈를 올린 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "양식",
-      "mainType": "",
-      "name": "맥앤치즈",
-      "description": "마카로니에 치즈 소스를 섞은 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "밥",
-      "name": "불닭 리조또",
-      "description": "불닭과 크림 리조또의 조합",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "빵",
-      "name": "떡갈비 버거",
-      "description": "떡갈비를 패티로 쓴 햄버거",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "",
-      "name": "치즈불닭 퀘사디아",
-      "description": "불닭과 치즈를 넣은 멕시코식 요리",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "면",
-      "name": "고추장 알리오올리오",
-      "description": "고추장으로 매콤하게 만든 오일 파스타",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "면",
-      "name": "낫또 까르보나라",
-      "description": "낫또를 넣은 이색 크림 파스타",
-      "imageUrl": ""
-    },
-    {
-      "category": "퓨전",
-      "mainType": "빵",
-      "name": "불고기 파니니",
-      "description": "불고기를 넣은 그릴 샌드위치",
-      "imageUrl": ""
-    }
-  
+  {
+    "category": "한식",
+    "mainType": "밥",
+    "name": "꼬막비빔밥",
+    "description": "양념한 꼬막과 밥을 비벼 먹는 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "",
+    "name": "김치찜",
+    "description": "묵은지를 돼지고기와 함께 찐 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "",
+    "name": "김치전",
+    "description": "김치를 넣어 바삭하게 부친 전",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찌개",
+    "name": "순대국밥",
+    "description": "순대와 돼지 내장이 들어간 진한 국밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찌개",
+    "name": "북엇국",
+    "description": "말린 북어와 계란을 넣어 끓인 국",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "해산물",
+    "name": "매운탕",
+    "description": "생선을 넣고 얼큰하게 끓인 찌개",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "고기",
+    "name": "장어구이",
+    "description": "양념한 장어를 구운 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "면",
+    "name": "열무국수",
+    "description": "열무김치와 국수를 함께 먹는 시원한 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "찌개",
+    "name": "마라탕",
+    "description": "중국식 매운 국물 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "",
+    "name": "마라샹궈",
+    "description": "중국식 매운 볶음 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "고기",
+    "name": "꿔바로우",
+    "description": "바삭한 돼지고기에 새콤한 소스를 입힌 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "",
+    "name": "지삼선",
+    "description": "가지, 감자, 피망을 볶은 채식 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "",
+    "name": "딤섬",
+    "description": "작은 만두류의 중국식 간식",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "",
+    "name": "샤오롱바오",
+    "description": "국물이 들어간 중국식 찐만두",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "면",
+    "name": "우육면",
+    "description": "소고기를 넣은 중국식 국수",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "밥",
+    "name": "차오판",
+    "description": "중국식 볶음밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "면",
+    "name": "탄탄면",
+    "description": "매운 땅콩 소스를 얹은 면 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "",
+    "name": "계란토마토볶음",
+    "description": "계란과 토마토를 볶은 가정식 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "",
+    "name": "스키야키",
+    "description": "소고기와 채소를 달콤한 육수에 끓인 전골",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "",
+    "name": "나베",
+    "description": "일본식 전골 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "밥",
+    "name": "텐동",
+    "description": "튀김을 올린 일본식 덮밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "해산물",
+    "name": "치라시스시",
+    "description": "여러 가지 해산물을 얹은 초밥밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "밥",
+    "name": "가츠카레",
+    "description": "돈가스를 올린 카레밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "",
+    "name": "사바정식",
+    "description": "고등어 구이를 곁들인 일본식 정식",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "",
+    "name": "타마고야끼",
+    "description": "달콤한 계란말이",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "밥",
+    "name": "스시롤",
+    "description": "김으로 말아 만든 일본식 롤",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "밥",
+    "name": "도리동",
+    "description": "닭고기와 계란을 올린 덮밥",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "",
+    "name": "규카츠",
+    "description": "소고기 튀김 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "브런치 플레이트",
+    "description": "달걀, 소시지, 빵을 곁들인 아침식사",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "치즈오믈렛",
+    "description": "치즈를 넣은 부드러운 오믈렛",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "머쉬룸스프",
+    "description": "버섯을 갈아 만든 부드러운 수프",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "고기",
+    "name": "로스트치킨",
+    "description": "오븐에 구운 닭요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "샐러드",
+    "name": "시저샐러드",
+    "description": "로메인과 크루통에 시저드레싱을 곁들인 샐러드",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "빵",
+    "name": "토스트아보카도",
+    "description": "구운 빵 위에 으깬 아보카도를 올린 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "콘치즈",
+    "description": "옥수수에 치즈를 얹고 구운 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "고기",
+    "name": "포크찹",
+    "description": "돼지고기 스테이크 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "칠리치즈프라이즈",
+    "description": "감자튀김에 칠리와 치즈를 올린 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "",
+    "name": "맥앤치즈",
+    "description": "마카로니에 치즈 소스를 섞은 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "밥",
+    "name": "불닭 리조또",
+    "description": "불닭과 크림 리조또의 조합",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "빵",
+    "name": "떡갈비 버거",
+    "description": "떡갈비를 패티로 쓴 햄버거",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "",
+    "name": "치즈불닭 퀘사디아",
+    "description": "불닭과 치즈를 넣은 멕시코식 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "면",
+    "name": "고추장 알리오올리오",
+    "description": "고추장으로 매콤하게 만든 오일 파스타",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "면",
+    "name": "낫또 까르보나라",
+    "description": "낫또를 넣은 이색 크림 파스타",
+    "imageUrl": ""
+  },
+  {
+    "category": "퓨전",
+    "mainType": "빵",
+    "name": "불고기 파니니",
+    "description": "불고기를 넣은 그릴 샌드위치",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "튀김",
+    "name": "경양식 돈가스",
+    "description": "경양식 돈가스 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "물막국수",
+    "description": "물막국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "비빔막국수",
+    "description": "비빔막국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "탕",
+    "name": "내장탕",
+    "description": "내장탕 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "삼겹살",
+    "description": "삼겹살 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "면",
+    "name": "매운짜장면",
+    "description": "매운짜장면 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "생선",
+    "name": "회",
+    "description": "회 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찜",
+    "name": "김치찜",
+    "description": "김치찜 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "면",
+    "name": "짜장면",
+    "description": "짜장면 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "탕",
+    "name": "탕수육",
+    "description": "탕수육 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "기타",
+    "name": "포테이토피자",
+    "description": "포테이토피자 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "탕",
+    "name": "순대국밥",
+    "description": "순대국밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "탕",
+    "name": "얼큰순대국밥",
+    "description": "얼큰순대국밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "아시안",
+    "mainType": "면",
+    "name": "쌀국수",
+    "description": "쌀국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "탕",
+    "name": "순두부찌개",
+    "description": "순두부찌개 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "면",
+    "name": "물냉면",
+    "description": "물냉면 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "쭈꾸미삼겹살",
+    "description": "쭈꾸미삼겹살 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "튀김",
+    "name": "닭강정",
+    "description": "닭강정 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찜",
+    "name": "찜닭",
+    "description": "찜닭 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "냉모밀",
+    "description": "냉모밀 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "들깨막국수",
+    "description": "들깨막국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찜",
+    "name": "스팸김치찜",
+    "description": "스팸김치찜 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "탕",
+    "name": "김치나베",
+    "description": "김치나베 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "마늘족발",
+    "description": "마늘족발 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "면",
+    "name": "트러플오일파스타",
+    "description": "트러플오일파스타 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "튀김",
+    "name": "양념치킨",
+    "description": "양념치킨 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "튀김",
+    "name": "후라이드치킨",
+    "description": "후라이드치킨 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "기타",
+    "name": "양꼬치",
+    "description": "양꼬치 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "밥",
+    "name": "중국식볶음밥",
+    "description": "중국식볶음밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "탕",
+    "name": "마라탕",
+    "description": "마라탕 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "기타",
+    "name": "마라샹궈",
+    "description": "마라샹궈 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "튀김",
+    "name": "텐동",
+    "description": "텐동 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "튀김",
+    "name": "일식돈가스",
+    "description": "일식돈가스 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "면",
+    "name": "우동",
+    "description": "우동 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "면",
+    "name": "해물파스타",
+    "description": "해물파스타 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "초당짬뽕순두부",
+    "description": "초당짬뽕순두부 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "면",
+    "name": "라멘",
+    "description": "라멘 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "아시안",
+    "mainType": "면",
+    "name": "우육면",
+    "description": "우육면 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "돌짜장",
+    "description": "돌짜장 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "아시안",
+    "mainType": "기타",
+    "name": "포케",
+    "description": "포케 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "해물칼국수",
+    "description": "해물칼국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "밥",
+    "name": "마파두부덮밥",
+    "description": "마파두부덮밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "중식",
+    "mainType": "기타",
+    "name": "쟁반짜장",
+    "description": "쟁반짜장 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "구이",
+    "name": "스테이크",
+    "description": "스테이크 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "밥",
+    "name": "리조또",
+    "description": "리조또 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "족발+막국수",
+    "description": "족발+막국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "생선구이",
+    "description": "생선구이 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "탕",
+    "name": "대구탕",
+    "description": "대구탕 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "파닭",
+    "description": "파닭 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "찜",
+    "name": "돼지고기두부김치찜",
+    "description": "돼지고기두부김치찜 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "생선",
+    "name": "초밥",
+    "description": "초밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "두부김치삼겹살볶음",
+    "description": "두부김치삼겹살볶음 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "밥",
+    "name": "돌솥알밥",
+    "description": "돌솥알밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "장어구이",
+    "description": "장어구이 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "보쌈",
+    "description": "보쌈 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "밥",
+    "name": "육회비빔밥",
+    "description": "육회비빔밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "일식",
+    "mainType": "면",
+    "name": "마제소바",
+    "description": "마제소바 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "구이",
+    "name": "불족발",
+    "description": "불족발 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "기타",
+    "name": "불고기피자",
+    "description": "불고기피자 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "콩국수",
+    "description": "콩국수 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "닭갈비",
+    "description": "닭갈비 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "면",
+    "name": "크림파스타",
+    "description": "크림파스타 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "양식",
+    "mainType": "면",
+    "name": "매콤크림파스타",
+    "description": "매콤크림파스타 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "밥",
+    "name": "카레덮밥",
+    "description": "카레덮밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "기타",
+    "name": "쭈꾸미보리밥",
+    "description": "쭈꾸미보리밥 요리",
+    "imageUrl": ""
+  },
+  {
+    "category": "한식",
+    "mainType": "면",
+    "name": "밀면",
+    "description": "밀면 요리",
+    "imageUrl": ""
+  }
 ]
